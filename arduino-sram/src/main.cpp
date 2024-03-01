@@ -5,13 +5,11 @@
 #define LED_BUILTIN 13
 #endif
 
-const char* ssid = "ssid";
-const char* password = "password";
 
 void setup()
 {
 	Serial.begin(115200);
-	WiFi.begin(ssid, password);
+	WiFi.begin(String(WIFI_SSD), String(WIFI_PASSWORD));
 	while (WiFi.status() != WL_CONNECTED)
 	{
 		delay(500);

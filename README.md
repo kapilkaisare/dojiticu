@@ -21,17 +21,18 @@ Assuming you've already installed [PlatformIO](https://docs.platformio.org/en/la
 
 ```
 $ source .platformio/penv/bin/activate
+$ cd arduino-sram
 $ pio project init --board nodemcuv2
 ```
 
-TODO: Add note about platformio.ini configuration
-
-### Setup WiFi parameters
-
-In `src/main.cpp` find the assignments for `ssid` and `password`; change these to your Wifi credentials.
-
 ### Build and upload
 
+Three environment variables need to be set when building the project:
+
+- `DJTC_PORT` - The serial port at which your board is docked. On Linux systems this will be something like `/dev/ttyUSB0`
+- `WIFI_SSD` - The name of your wifi gateway.
+- `WIFI_PASSWORD` - Your wifi password
+
 ```
-$ pio run --target upload
+$ DJTC_PORT=<the serial port> WIFI_SSD=<ssd> WIFI_PASSWORD=<wifi password> pio run --target upload
 ```
