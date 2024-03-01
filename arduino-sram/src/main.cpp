@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "ESP8266WiFi.h"
+#include "WiFiUtils/WiFiUtils.h"
 
 #ifndef LED_BUILTIN
 #define LED_BUILTIN 13
@@ -9,17 +10,10 @@
 void setup()
 {
 	Serial.begin(115200);
-	WiFi.begin(String(WIFI_SSD), String(WIFI_PASSWORD));
-	while (WiFi.status() != WL_CONNECTED)
-	{
-		delay(500);
-		Serial.print("*");
-	}
-
-	Serial.println("");
+	IPAddress ipAddress = connectToWiFi(String(WIFI_SSID), String(WIFI_PASSWORD));
 	Serial.println("WiFi connection successful.");
 	Serial.println("The IP Address of ESP8266 Module is: ");
-	Serial.print(WiFi.localIP());
+	Serial.print(ipAddress);
 	pinMode(LED_BUILTIN, OUTPUT);
 }
 

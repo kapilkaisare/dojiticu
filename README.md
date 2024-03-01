@@ -30,9 +30,9 @@ $ pio project init --board nodemcuv2
 Three environment variables need to be set when building the project:
 
 - `DJTC_PORT` - The serial port at which your board is docked. On Linux systems this will be something like `/dev/ttyUSB0`
-- `WIFI_SSD` - The name of your wifi gateway.
+- `WIFI_SSID` - The name of your wifi gateway.
 - `WIFI_PASSWORD` - Your wifi password
 
 ```
-$ DJTC_PORT=<the serial port> WIFI_SSD=<ssd> WIFI_PASSWORD=<wifi password> pio run --target upload
+$ DJTC_PORT=<the serial port> WIFI_SSID=<ssid> WIFI_PASSWORD=<wifi password> pio run --target upload
 ```
